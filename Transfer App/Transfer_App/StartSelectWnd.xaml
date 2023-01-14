@@ -1,0 +1,37 @@
+﻿<Window x:Class="Transfer_App.StartSelectWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Transfer_App"
+        mc:Ignorable="d"
+        Title="Start Select Form" Height="257" Width="350" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Виберіть дату та пункт відправлення:" Grid.ColumnSpan="5" Margin="0,12,0,0" FontFamily="Palatino Linotype" FontSize="14" FontWeight="Bold"/>
+        <ComboBox x:Name="destination"  Grid.Row="3" Grid.Column="1" Margin="0,0,0,14" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <Label Content="Пункт відправлення" FontSize="15" FontWeight="Bold" FontFamily="Palatino Linotype" Grid.Row="1" Grid.Column="1" Height="38" VerticalAlignment="Center" Grid.ColumnSpan="3"/>
+        <DatePicker x:Name="date" Grid.Row="6" Grid.Column="1" Margin="0,8,0,8" Grid.RowSpan="3" Grid.ColumnSpan="3" />
+        <Label Content="Дата відправлення" FontSize="15" FontWeight="Bold" FontFamily="Palatino Linotype" Margin="0,2,5,2" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button x:Name="ok_btn" Grid.Column="2" Background="Black" Content="Найти рейси" Grid.Row="9" Margin="0,0,0,6" Grid.RowSpan="2" Click="ok_btn_Click" />
+    </Grid>
+</Window>
