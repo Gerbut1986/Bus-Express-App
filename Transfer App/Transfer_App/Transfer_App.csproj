@@ -251,6 +251,7 @@
     <Compile Include="Models\ADO\ServiceSchemaPlaces.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\ExcelExport.cs" />
+    <Compile Include="Models\ExcelImport.cs" />
     <Compile Include="StartSelectWnd.xaml.cs">
       <DependentUpon>StartSelectWnd.xaml</DependentUpon>
     </Compile>

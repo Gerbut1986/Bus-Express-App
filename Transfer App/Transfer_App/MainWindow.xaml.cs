@@ -21,7 +21,6 @@
         static bool notSelected = true;
         const string _Title = "BUSS EXPRESS";
         public static string selectedPlace = null;
-        readonly string pathPassangers, pathOrders;
         List<string> SchemaPlaceProps { get; set; }
         public static string SelectDest { get; set; }
         public static DateTime SelectDate { get; set; }
@@ -39,7 +38,6 @@
             // SchemaPlaceProps = GetSchemaPlacesProperties();
             PassengersGrid.Background = OrdersGrid.Background = Background 
                       = new SolidColorBrush(Color.FromArgb(50, 100, 150, 100));
-            FillPathes(out pathPassangers, out pathOrders);
             try
             {
                 RefreshGrid(false);
@@ -138,11 +136,25 @@
         private void ExportPass_Btn_Click(object sender, RoutedEventArgs e)
         {
             var sfd = new SaveFileDialog();
+            sfd.FileName = "Passangers Info";
             if (sfd.ShowDialog() == true)
             {
+                var path = sfd.FileName + ".xlsx";
                 var dataToExport = PassInfos.ToList();
-                ExcelExporter<PassInfo>.ExportDataToExcel(dataToExport, pathPassangers);
+                ExcelExporter<PassInfo>.ExportDataToExcel(dataToExport, path);
             }
+        }
+
+        private void SelDatePass_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectForm = new StartSelectWnd(false);
+            selectForm.Owner = this;
+            selectForm.ShowDialog();
+        }
+
+        private void ImportPass_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            PassengersGrid.ItemsSource = new ExcelImport().Import();
         }
         #endregion
 
@@ -191,12 +203,18 @@
         private void ExportOrder_Btn_Click(object sender, RoutedEventArgs e)
         {
             var sfd = new SaveFileDialog();
+            sfd.FileName = "Ordeers Info";
             if (sfd.ShowDialog() == true)
             {
                 var path = sfd.FileName + ".xlsx";
                 var dataToExport = OrderInfos.ToList();
                 ExcelExporter<OrderInfo>.ExportDataToExcel(dataToExport, path);
             }
+        }
+
+        private void ImportOrder_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            OrdersGrid.ItemsSource = new ExcelImport().Import();
         }
         #endregion
 
@@ -1213,12 +1231,6 @@
             return lstProps;
         }
 
-        private void FillPathes(out string path1, out string path2)
-        {
-            path2 = AppDomain.CurrentDomain.BaseDirectory + "Orders Info.xlsx";
-            path1 = AppDomain.CurrentDomain.BaseDirectory + "Passengers Info.xlsx";
-        }
-
         private void FilterDestDate()
         {
             if(SelectDate != DateTime.MinValue && 
@@ -1228,5 +1240,10 @@
             }
         }
         #endregion
+
+        private void DestinationGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

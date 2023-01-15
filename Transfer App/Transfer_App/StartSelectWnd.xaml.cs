@@ -7,22 +7,36 @@
 
     public partial class StartSelectWnd : Window
     {
-        readonly DataContext db;
+        readonly DataContext _db;
+        private bool _isFirstCall;
 
-        public StartSelectWnd()
+        public StartSelectWnd(bool isFirstCall = true)
         {
-            InitializeComponent();
-            db = new DataContext();
-            destination.ItemsSource = db.Destinations.Select(n => n.Name).ToList();
+            InitializeComponent(); 
+            _db = new DataContext();
+            _isFirstCall = isFirstCall;
+            destination.ItemsSource = _db.Destinations.Select(n => n.Name).ToList();
         }
 
         private void ok_btn_Click(object sender, RoutedEventArgs e)
         {
             if (destination.Text != "" && DateTime.TryParse(date.Text, out DateTime d))
             {
-                MainWindow.SelectDest = destination.Text;
-                MainWindow.SelectDate = d;
-                this.Close();
+                if (_isFirstCall)
+                {
+                    MainWindow.SelectDest = destination.Text;
+                    MainWindow.SelectDate = d;
+                    this.Close();
+                }
+                else
+                    try
+                    {
+                        MainWindow.SelectDate = d;
+                        MainWindow.SelectDest = destination.Text;
+                        (this.Owner as MainWindow).RefreshGrid(true);
+                    }
+                    catch { }
+                    finally { this.Close(); }
             }
             else
             {

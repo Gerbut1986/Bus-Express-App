@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:Transfer_App"
         mc:Ignorable="d"
        Title="BUSS EXPRESS APP" Height="402.062" Width="785" FontSize="14" FontFamily="Palatino Linotype" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/bus_logo.png">
-    
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="144*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="200*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="40*"/>
@@ -22,14 +28,17 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <TabControl Grid.ColumnSpan="10">
+        <TabControl Grid.ColumnSpan="9" Grid.Column="1" Grid.RowSpan="4">
 
             <TabItem Header="К-сть пасажирів Info">
                 <Grid Background="Black">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="58*"/>
-                        <RowDefinition Height="42*"/>
-                        <RowDefinition Height="255*"/>
+                        <RowDefinition Height="59*"/>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="202*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="34*"/>
@@ -46,7 +55,14 @@
                         <ColumnDefinition Width="34*"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid x:Name="PassengersGrid" HorizontalAlignment="Stretch" Margin="0,6,0,0" Grid.ColumnSpan="12" Grid.Row="2" SelectionChanged="PassengersGrid_SelectionChanged" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" CanUserReorderColumns="False" EnableRowVirtualization="false" EnableColumnVirtualization="false" >
+                    <DataGrid x:Name="PassengersGrid" Grid.ColumnSpan="12" Grid.Row="5" SelectionChanged="PassengersGrid_SelectionChanged"
+                              CanUserAddRows="False" 
+                              IsReadOnly="True" 
+                              AutoGenerateColumns="False" 
+                              GridLinesVisibility="All" 
+                              CanUserReorderColumns="False" 
+                              EnableRowVirtualization="false" 
+                              EnableColumnVirtualization="false">
                         <DataGrid.RowHeaderStyle>
                             <Style TargetType="DataGridRowHeader">
                                 <Setter Property="Template">
@@ -170,22 +186,27 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button x:Name="AddPass_Btn" Content="Добавити" Grid.Row="1" Grid.ColumnSpan="3" Click="AddPass_Btn_Click" Margin="34,6,0,0"/>
-                    <Button x:Name="DeletePass_Btn" Content="Видалити" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Click="DeletePass_Btn_Click" Margin="13,6,0,0"/>
-                    <Button x:Name="EditPass_Btn" Content="Редагувати" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="3" Click="EditPass_Btn_Click" Margin="0,6,13,0"/>
-                    <Button x:Name="ExportPass_Btn" Content="Експорт у EXCEL" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" Click="ExportPass_Btn_Click" Margin="0,6,34,0"/>
-                    <Image VerticalAlignment="Center" Grid.ColumnSpan="4" Source="/Images/be_logo.png" Margin="1,0,1,0" Grid.Column="1"/>
+                    <Button x:Name="AddPass_Btn" Content="Добавити" Grid.Row="1" Grid.ColumnSpan="2" Click="AddPass_Btn_Click" Grid.Column="1"/>
+                    <Button x:Name="DeletePass_Btn" Content="Видалити" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Click="DeletePass_Btn_Click" />
+                    <Button x:Name="EditPass_Btn" Content="Редагувати" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" Click="EditPass_Btn_Click" />
+                    <Button x:Name="ExportPass_Btn" Content="Експорт у EXCEL" Grid.Column="10" Grid.Row="1" Click="ExportPass_Btn_Click"/>
+                    <Image Grid.ColumnSpan="4" Source="/Images/be_logo.png" Margin="1,0,1,0" Grid.Column="1"/>
                     <Image Grid.Column="4" Grid.ColumnSpan="4" Source="/Images/bus_logo.png" Margin="24,0,129,0" />
                     <Label Foreground="Gold" Content="Пасажири Info" Grid.Column="8" Margin="2,10,5,7" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="22" FontStyle="Italic"/>
+                    <Button x:Name="SelDatePass_Btn" Content="Вибрати рейс та дату" Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2" Click="SelDatePass_Btn_Click" />
+                    <Button x:Name="ImportPass_Btn" Content="Імпорт з EXCEL" Grid.Column="10" Grid.Row="3" Click="ImportPass_Btn_Click"/>
                 </Grid>
             </TabItem>
 
             <TabItem Header="Бронювання Info">
                 <Grid Background="Black">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="58*"/>
+                        <RowDefinition Height="57*"/>
                         <RowDefinition Height="42*"/>
-                        <RowDefinition Height="255*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="42*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="181*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="34*"/>
@@ -202,7 +223,7 @@
                         <ColumnDefinition Width="34*"/>
                     </Grid.ColumnDefinitions>
 
-                    <DataGrid x:Name="OrdersGrid" CanUserResizeColumns="False" HorizontalAlignment="Stretch" Margin="0,6,0,0" Grid.ColumnSpan="12" Grid.Row="2" SelectionChanged="OrdersGrid_SelectionChanged" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal">
+                    <DataGrid x:Name="OrdersGrid" SelectionChanged="OrdersGrid_SelectionChanged" Grid.ColumnSpan="12" Grid.Row="5" CanUserResizeColumns="False" CanUserAddRows="False" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="Horizontal">
                         <DataGrid.RowHeaderStyle>
                             <Style TargetType="DataGridRowHeader">
                                 <Setter Property="Template">
@@ -286,13 +307,15 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button x:Name="AddOrder_Btn" Content="Добавити" Grid.Row="1" Grid.ColumnSpan="3" Click="AddOrder_Btn_Click" Margin="34,2,0,0"/>
-                    <Button x:Name="DeleteOrder_Btn" Content="Видалити" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Click="DeleteOrder_Btn_Click" Margin="13,2,0,0"/>
-                    <Button x:Name="EditOrder_Btn" Content="Редагувати" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="3" Click="EditOrder_Btn_Click" Margin="0,2,13,0"/>
-                    <Button x:Name="ExportOrder_Btn" Content="Експорт у EXCEL" Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="2" Click="ExportOrder_Btn_Click" Margin="0,2,34,0"/>
-                    <Image VerticalAlignment="Center" Grid.ColumnSpan="4" Source="/Images/be_logo.png" Margin="1,0,1,0" Grid.Column="1"/>
-                    <Image Grid.Column="4" Grid.ColumnSpan="4" Source="/Images/bus_logo.png" Margin="24,0,127,0" />
+                    <Button x:Name="AddOrder_Btn" Content="Добавити" Grid.Row="1" Grid.ColumnSpan="3" Click="AddOrder_Btn_Click" Margin="34,0,0,0"/>
+                    <Button x:Name="DeleteOrder_Btn" Content="Видалити" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" Click="DeleteOrder_Btn_Click" Margin="13,0,0,0" />
+                    <Button x:Name="EditOrder_Btn" Content="Редагувати" Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="3" Click="EditOrder_Btn_Click" Margin="0,0,13,0" />
+                    <Button x:Name="ExportOrder_Btn" Content="Експорт у EXCEL" Grid.Column="10" Grid.Row="1" Click="ExportOrder_Btn_Click" Grid.ColumnSpan="2" Margin="0,0,34,0" />
+                    <Image Grid.ColumnSpan="5" Source="/Images/be_logo.png" Margin="34,0,0,42" Grid.RowSpan="2"/>
+                    <Image Grid.Column="4" Grid.ColumnSpan="4" Source="/Images/bus_logo.png" Margin="24,0,127,42" Grid.RowSpan="2" />
                     <Label Foreground="Gold" Content="Бронювання Info" Grid.Column="8" Margin="3,10,10,7" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="22" FontStyle="Italic"/>
+                    <!--<Button x:Name="SelDataOrder_Btn" Content="Вибрати рейс та дату" Click="SelDataOrder_Btn_Click" Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2" />-->
+                    <Button x:Name="ImportOrder_Btn" Content="Імпорт з EXCEL" Click="ImportOrder_Btn_Click" Grid.Column="10" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0,34,0" />
                 </Grid>
             </TabItem>
 
@@ -403,7 +426,7 @@
                             </TransformGroup>
                         </Image.RenderTransform>
                     </Image>
-                    
+
                     <Image Source="/Images/bus_logo.png"  Grid.Row="0" Grid.ColumnSpan="3" Margin="0,0,1,0" Grid.Column="5" >
                         <Image.RenderTransform>
                             <TransformGroup>
@@ -415,7 +438,7 @@
                         </Image.RenderTransform>
 
                     </Image>
-                    
+
                     <Button x:Name="Refresh_Btn" Grid.Column="13" Content="Refresh" Grid.ColumnSpan="2" Margin="0,4,2,3" Click="Refresh_Btn_Click"/>
 
                     <!--<ComboBox x:Name="schema_combo" Grid.Column="9" Grid.ColumnSpan="4" FontSize="15" FontWeight="Bold" Margin="2,10,10,11" BorderBrush="#FF062CF9" Foreground="#FF054400" OpacityMask="#FFA90404">
@@ -427,9 +450,86 @@
                         </ComboBox.Background>
                     </ComboBox>-->
                 </Grid>
-                
+
             </TabItem>
-            
+
+            <TabItem Header="Пункти відправлень">
+                <Grid Background="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="58*"/>
+                        <RowDefinition Height="42*"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="45*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="199*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="34*"/>
+                        <ColumnDefinition Width="143*"/>
+                        <ColumnDefinition Width="24*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="24*"/>
+                        <ColumnDefinition Width="144*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="129*"/>
+                        <ColumnDefinition Width="39*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="168*"/>
+                        <ColumnDefinition Width="34*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid x:Name="DestinationGrid" Grid.ColumnSpan="12" Grid.Row="3" SelectionChanged="DestinationGrid_SelectionChanged"
+                              CanUserAddRows="False" 
+                              IsReadOnly="True" 
+                              AutoGenerateColumns="False" 
+                              GridLinesVisibility="All" 
+                              CanUserReorderColumns="False" 
+                              EnableRowVirtualization="false" 
+                              EnableColumnVirtualization="false" Height="247" Grid.RowSpan="3" VerticalAlignment="Top" Margin="0,1,0,0">
+                        <DataGrid.RowHeaderStyle>
+                            <Style TargetType="DataGridRowHeader">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate />
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGrid.RowHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Binding="{Binding Path=Id}" Header="Id">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="Black" />
+                                        <Setter Property="Foreground" Value="Yellow" />
+                                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                                        <Setter Property="FontSize" Value="14"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="*" Binding="{Binding Path=Name}" Header="From To">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="Background" Value="Black" />
+                                        <Setter Property="Foreground" Value="Yellow" />
+                                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                                        <Setter Property="FontSize" Value="14"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button x:Name="AddDest_Btn" Content="Добавити" Grid.ColumnSpan="3" Grid.Row="1" Margin="34,5,0,0" />
+                    <Button x:Name="DeleteDest_Btn" Content="Видалити" Grid.Column="3" Grid.ColumnSpan="3" Margin="13,5,0,0" Grid.Row="1" />
+                    <Button x:Name="EditDest_Btn" Content="Редагувати" Grid.Column="7" Grid.ColumnSpan="2" Click="EditPass_Btn_Click" Margin="0,5,3,0" Grid.Row="1" />
+                    <Button x:Name="ExportDest_Btn" Content="Експорт у EXCEL" Grid.Column="10" Grid.ColumnSpan="2" Margin="0,5,34,0" Grid.Row="1"/>
+                    <Image Grid.ColumnSpan="4" Source="/Images/be_logo.png" Margin="1,0,1,0" Grid.Column="1"/>
+                    <Image Grid.Column="4" Grid.ColumnSpan="4" Source="/Images/bus_logo.png" Margin="24,0,129,0" />
+                    <Label Foreground="Gold" Content="Пункти призначень" Grid.Column="8" Margin="2,10,5,7" Grid.ColumnSpan="3" FontWeight="Bold" FontSize="22" FontStyle="Italic"/>
+
+                </Grid>
+            </TabItem>
+
         </TabControl>
     </Grid>
 </Window>

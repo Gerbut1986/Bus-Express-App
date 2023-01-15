@@ -19,9 +19,9 @@
             String resultat = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
             String result = (string)Clipboard.GetData(DataFormats.Text);
             dgDisplay.UnselectAllCells();
-            StreamWriter file1 = new StreamWriter(path, isRewrite);
-            file1.WriteLine(result.Replace(',', ' '));
-            file1.Close();
+            var file = new StreamWriter(path, isRewrite);
+            file.WriteLine(result.Replace(',', ' '));
+            file.Close();
             MessageBox.Show(" Exporting DataGrid data to Excel file created.xls");
         }
     }
@@ -58,6 +58,10 @@
                         try
                         {
                             var val = propInfo.GetValue(item);
+                            if(val == null)
+                            {
+                                val = "";
+                            }
                             if(bool.TryParse(val.ToString(), out bool b))      
                                  excelSheet.Cells[k + 2, j].Value = b == true ? "+" : "X";
                             else excelSheet.Cells[k + 2, j].Value = val;
