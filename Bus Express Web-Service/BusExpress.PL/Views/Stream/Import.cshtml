@@ -1,0 +1,44 @@
+﻿@model string
+@{
+    ViewBag.Title = "Import " + ViewBag.Entity;
+}
+
+<h2 id="title">
+    <span id="sp">
+        Import any Excel file with @ViewBag.Entity
+    </span>
+</h2>
+@using (@Html.BeginForm("Import", "Stream", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+{
+    <div class="row" style="text-align:center">
+        <div class="col"></div>
+        <div class="col" id="upl">
+            <h2>File type: .xlsx | csv</h2>
+            <input type="file" class="btn btn-danger" name="file_Uploader" /><br /><br />
+            <input type="submit" class="btn btn-primary" id="btn_Upload" value="Upload" />
+        </div>
+        <div class="col"></div>
+    </div>
+}
+
+<style>
+    #title {
+        font-family: 'Palatino Linotype';
+        font-weight: bold;
+        color: yellow;
+        text-align: center;
+        margin-top:17px
+    }
+    #sp {
+        padding: 7px;
+        border-radius: 5px;
+        background-color: blue
+    }
+    #upl {
+        padding: 62px;
+        border: 0.1px solid;
+        border-radius: 5px;
+        margin-top: 12px;
+        background-color: black
+    }
+</style>

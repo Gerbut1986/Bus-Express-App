@@ -1,0 +1,143 @@
+﻿@model BusExpress.BLL.Dto.PassInfoDto
+
+@{
+    ViewBag.Title = "Pass Info Details";
+}
+
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:black;color:white;padding:12px">
+        Passenger Info - [Details Form]
+    </span>
+</h2>
+<hr />
+
+<div class="row" style="text-align:center">
+    <div class="col">
+        <dl id="scope" class="dl-horizontal">
+            <dt>
+                <label style="text-align:left">Id:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Id, new { id = "val_field", @readonly=true })
+            </dd>
+
+            <dt>
+                <label>Booking Date:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Booking_Date, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Booking Route:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Booking_Route, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Quantity:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Qty, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Tax:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Tax, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Total:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Total, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Payment Method:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Payment_Method, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>First Name:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.C_FName, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Last Name:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.C_LName, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Phone:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.C_Phone, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Email:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.C_Email, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Notes:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.C_Notes, new { id = "val_field", @readonly = true })
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<div style="text-align:center;margin-top:15px">
+    @Html.ActionLink("Back to List", "PassInfo", "Select", null, new { style = "", @class = "btn btn-danger" })
+</div>
+
+
+<style>
+    dt{
+        color:darkred;
+        text-align:left;
+    }
+    #scope {      
+        width:300px;
+        margin:auto;
+        padding: 22px;
+        background-image: linear-gradient(black, yellow, darkgray)
+    }
+    #val_field {
+        text-align: left;
+        background-color: black;
+        text-align: center;
+        font-family: palatino linotype;
+        font-weight:bold;
+        color:darkorange;
+        font-size: large
+    }
+</style>

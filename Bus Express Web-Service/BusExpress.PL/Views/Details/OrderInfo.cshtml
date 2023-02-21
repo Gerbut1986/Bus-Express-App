@@ -1,0 +1,122 @@
+﻿@model BusExpress.BLL.Dto.OrderInfoDto
+
+@{
+    ViewBag.Title = "Order Info Details";
+}
+
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:black;color:white;padding:12px">
+        Order Info - [Details Form]
+    </span>
+</h2>
+<hr />
+
+<div class="row" style="text-align:center">
+    <div class="col">
+        <dl id="scope" class="dl-horizontal">
+            <dt>
+                <label style="text-align:left">Id:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Id, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>From:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.From, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>To:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.To, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Last & First Name:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.LName_FName, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Number Place:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.PlaceNumber, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Phone:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Phone, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Order Number:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.OrderNumber, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Money Amount:</label>
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.MoneyAmount, new { id = "val_field", @readonly = true })
+            </dd>
+
+            <dt>
+                <label>Is Ordered?:</label>
+            </dt>
+            <dd>
+                @{
+                    var isordered = Model.IsOrdered == false ? "YES" : "No";
+                }
+                <input id = "val_field" value="@isordered" readonly /> 
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div style="text-align:center;margin-top:15px">
+    @Html.ActionLink("Back to List", "OrderInfo", "Select", null, new { style = "", @class = "btn btn-danger" })
+</div>
+
+
+<style>
+    dt {
+        color: darkred;
+        text-align: left;
+    }
+
+    #scope {
+        width: 300px;
+        margin: auto;
+        padding: 22px;
+        background-image: linear-gradient(black, yellow, darkgray)
+    }
+
+    #val_field {
+        text-align: left;
+        background-color: black;
+        text-align: center;
+        font-family: palatino linotype;
+        font-weight: bold;
+        color: darkorange;
+        font-size: large
+    }
+</style>

@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Upload Any File";
+}
+
+<h3 style="text-align:center;color:darkblue;margin-top:22px;font-family:'Palatino Linotype'">
+    Upload any file the following formats (.pdf, .doc, .docs, .docx, .csv, .xls, .xlsx)
+</h3>
+
+<div class="row" style="text-align:center">
+    <div id="file_upl" class="col-md-5">
+        <input id="fileinput" type="file" accept=".pdf, .doc, .docs, .docx, .csv, .xls, .xlsx">
+
+        <script type="text/javascript">
+            var fileInput = document.getElementById("fileinput");
+            var allow1 = ".pdf";
+            var allow2 = ".doc";
+            var allow3 = ".docs";
+            var allow4 = ".docx";
+            var allow5 = ".csv";
+            var allow6 = ".xls";
+            var allow7 = ".xlsx";
+            fileInput.addEventListener("change", function () {
+                // Check that the file extension is supported.
+                // If not, clear the input.
+                var hasInvalidFiles = false;
+                for (var i = 0; i < this.files.length; i++) {
+                    var file = this.files[i];
+                    if (!file.name.endsWith(allow1) && !file.name.endsWith(allow2) && !file.name.endsWith(allow3) &&
+                        !file.name.endsWith(allow4) && !file.name.endsWith(allow5) && !file.name.endsWith(allow6) &&
+                        !file.name.endsWith(allow7)) {
+                        hasInvalidFiles = true;
+                    }
+                }
+                if (hasInvalidFiles) {
+                    fileInput.value = "";
+                    alert("Unsupported file type was selected.");
+                }
+            });
+        </script>
+
+        <br />
+        <input type="button" id="btnUpload" value="Upload File/s" />
+
+        <h5 style="color:green;font-family:'Palatino Linotype'"> @ViewBag.UploadMsg</h5>
+        <br />
+        @Html.ActionLink("See All Uploaded Files", "AllFiles", "Stream", "", new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+                    $(document).ready(function () {
+                        $('#btnUpload').click(function () {
+                            // Checking whether FormData is available in browser
+                            if (window.FormData !== undefined) {
+                                var fileUpload = $("#fileinput").get(0);
+                                var files = fileUpload.files;
+                                // Create FormData object
+                                var fileData = new FormData();
+                                // Looping over all files and add it to FormData object
+                                for (var i = 0; i < files.length; i++) {
+                                    fileData.append(files[i].name, files[i]);
+                                }
+                                $.ajax({
+                                    url: '/Stream/Uploded',
+                                    type: "POST",
+                                    contentType: false,
+                                    processData: false,
+                                    data: fileData,
+                                    success: function (result) {
+                                        alert(result);
+                                    },
+                                    error: function (err) {
+                                        alert(err.statusText);
+                                    }
+                                });
+                            } else {
+                                alert("FormData is not supported.");
+                            }
+                        });
+                    });
+</script>
+
+
+<style>
+    #file_upl {
+        border: 0.1px solid black;
+        margin: auto;
+        width: 450px;
+        border-radius: 15px;
+        padding: 35px;
+    }
+</style>

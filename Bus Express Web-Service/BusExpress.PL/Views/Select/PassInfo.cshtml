@@ -1,0 +1,197 @@
+﻿@model List<BusExpress.BLL.Dto.PassInfoDto>
+@{
+    ViewBag.Title = "Passengers";
+}
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<section class="ftco-section">
+    <div class="container">
+        <hr />
+        <h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+            <span style="background-color:black;color:white;padding:12px">
+                Passengers Information Table
+            </span>
+        </h2>
+        <hr />
+        <div class="row">
+            <div style="margin-top:10px" class="col">
+                @Html.ActionLink("Add New One", "PassInfo", "Create", null, new { @class = "btn btn-success", style = "margin-top:-32px" })
+                @Html.ActionLink("Import from Excel", "Import", "Stream", new { model = nameof(BusExpress.BLL.Dto.PassInfoDto) }, new { @class = "btn btn-warning", style = "margin-top:-32px" })
+            </div>
+
+            <div class="col-md-12">
+                @if (ViewBag.IsEmpty == false)
+                {
+                    <div class="table-wrap" style="overflow: auto; width: 100%">
+                        @using (Html.BeginForm())
+                        {
+                            <table class="table table-dark table-bordered table-hover">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th>#</th>
+                                        <th>Booking Date</th>
+                                        <th>Booking Route</th>
+                                        <th>Quantity</th>
+                                        <th>Tax</th>
+                                        <th>Total</th>
+                                        <th>Payment Method</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Notes</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="bg-primary">
+                                            <td scope="row">@item.Id</td>
+                                            <td>@item.Booking_Date</td>
+                                            <td>@item.Booking_Route</td>
+                                            <td>@item.Qty</td>
+                                            <td>@item.Tax</td>
+                                            <td>@item.Total</td>
+                                            <td>@item.Payment_Method</td>
+                                            <td>@item.C_FName</td>
+                                            <td>@item.C_LName</td>
+                                            <td>@item.C_Phone</td>
+                                            <td>@item.C_Email</td>
+                                            <td>@item.C_Notes</td>
+                                            <td>
+                                                <a href="/Edit/PassInfo?id=@item.Id"><i class="fa fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href="/Details/PassInfo?id=@item.Id" style="border:1px solid;padding:2px;">
+                                                    <i style="width: 20px" class="fa fa-info"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="/Delete/PassInfo?id=@item.Id"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="table-wrap" style="border: 1px solid red;background-color:red;padding:33px">
+                        <h3 style="text-align:center;color:white;border:2px solid red">
+                            @ViewBag.EmptyMsg
+                        </h3>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            /* Position the tooltip text - see examples below! */
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+</style>
+
+<script src="~/Content/Tables/js/jquery.min.js"></script>
+<script src="~/Content/Tables/js/popper.js"></script>
+<script src="~/Content/Tables/js/bootstrap.min.js"></script>
+<script src="~/Content/Tables/js/main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"786d7ad02c4bffd4","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}' crossorigin="anonymous"></script>
+
+
+
+<!-- Import from EXCEL to athe table (using JavaScript): -->
+@*<div class="container">
+    <h2 class="text-center mt-4 mb-4">Convert Excel to HTML Table using JavaScript</h2>
+    <div class="card">
+        <div class="card-header"><b>Select Excel File</b></div>
+        <div class="card-body">
+            <input type="file" name="file" id="excel_file" />
+            <input type="button" name="display" value="Show Data" id="btnShow" onclick="ShowData()" class="btn btn-primary" />
+        </div>
+    </div>
+    <div id="excel_data" class="mt-5"></div>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonyous" />
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script>
+    var table_output = "";
+    var excel_file = document.getElementById("excel_file");
+    excel_file.addEventListener("change", (event) => {
+
+        var reader = new FileReader();
+
+        reader.readAsArrayBuffer(event.target.files[0]);
+
+        reader.onload = function (event) {
+            var data = new Uint8Array(reader.result);
+
+            var work_book = XLSX.read(data, { type: 'array' });
+
+            var sheet_name = work_book.SheetNames;
+
+            var sheet_data = XLSX.utils.sheet_to_json(work_book.Sheets[sheet_name[0]], { hearder: 1 });
+
+            if (sheet_data.length > 0) {
+                table_output += '<table class="table table-dark table-bordered">';
+
+                table_output += '<thead><tr><th> # </th><th> Booking Date </th><th> Booking Route </th><th> Quantity </th>'+
+                '<th>Tax</th><th>Total</th><th>Payment Method</th><th>First Name</th><th>Last Name</th><th>Phone</th><th>Email</th><th>Notes</th> </tr ></thead> ';
+                table_output += '<tbody>';
+
+                for (var row = 0; row < sheet_data.length; row++) {
+                    table_output += '<tr>';
+                    table_output += '<td>' + sheet_data[row].Id + '</td>';
+                    table_output += '<td>' + sheet_data[row].Booking_Date + '</td>';
+                    table_output += '<td>' + sheet_data[row].Booking_Route + '</td>';
+                    table_output += '<td>' + sheet_data[row].Qty + '</td>';
+                    table_output += '<td>' + sheet_data[row].Tax + '</td>';
+                    table_output += '<td>' + sheet_data[row].Total + '</td>';
+                    table_output += '<td>' + sheet_data[row].Payment_Method + '</td>';
+                    table_output += '<td>' + sheet_data[row].C_FName + '</td>';
+                    table_output += '<td>' + sheet_data[row].C_LName + '</td>';
+                    table_output += '<td>' + sheet_data[row].C_Phone + '</td>';
+                    table_output += '<td>' + sheet_data[row].C_Notes + '</td>';
+                    table_output += '<td><a href="/Edit/PassInfo?id=' + sheet_data[row].Id +'"><i class="fa fa-edit"></i></a></td>';
+                    table_output += '<td><a href="/Details/PassInfo?id=' + sheet_data[row].Id +'" style="border:1px solid;padding:2px;"><i style="width: 20px" class="fa fa-info"></i></a></td>';
+                    table_output += '<td><a href="/Delete/PassInfo?id=' + sheet_data[row].Id +'"><i class="fa fa-trash"></i></a></td>';
+                    table_output += '</tr>';
+                }
+
+                table_output += '</tbody></table>';
+            }
+        }
+    })
+    function ShowData() {
+        document.getElementById("excel_data").innerHTML = table_output;
+    }
+
+</script>*@

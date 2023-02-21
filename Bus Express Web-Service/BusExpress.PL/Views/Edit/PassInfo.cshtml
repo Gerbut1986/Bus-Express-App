@@ -1,0 +1,141 @@
+﻿@model BusExpress.BLL.Dto.PassInfoDto
+@{
+    ViewBag.Title = "Passengers Info Edit";
+}
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:green;color:white;padding:12px">
+        Passengers Info - [Edit Form]
+    </span>
+</h2>
+<hr />
+
+@if(BusExpress.PL.Controllers.EditController.IsError == true)
+{
+    <h3 style="color:red;text-align:center;font-family:'Palatino Linotype';font-weight:bold">
+        @ViewBag.Error
+    </h3>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="width: 400px; margin: auto; padding: 22px;
+background-image: linear-gradient(black, green, darkgray) " class="">
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <h5>Booking Date:</h5>
+                <div style="text-align:center" class="col-md-12">
+                    @Html.EditorFor(model => model.Booking_Date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Booking_Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Booking Route:</h5>
+                <div class="col-md-12">
+                    @Html.DropDownListFor(model => model.Booking_Route, ViewBag.Destinations as SelectList, "", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.Booking_Route, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Quantity:</h5>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Tax:</h5>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Tax, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tax, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Total:</h5>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Total, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Total, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Payment Method:</h5>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Payment_Method, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Payment_Method, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>First Name:</h5>
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.C_FName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.C_FName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Last Name:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.C_LName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.C_LName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Phone:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.C_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.C_Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Email:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.C_Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.C_Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Notes:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.C_Notes, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.C_Notes, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="text-align:center;margin-top:10px">
+                <div class="col-md-offset-2 col-md-12" style="text-align:center">
+                    <input type="submit" value="Update" style="width: 200px" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div style="text-align:center;margin-top:15px">
+    @Html.ActionLink("Back to List", "PassInfo", "Select", null, new { style = "", @class = "btn btn-danger" })
+</div>
+
+<style>
+    h5 {
+        color: gold;
+    }
+</style>

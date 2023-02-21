@@ -1,0 +1,678 @@
+﻿@model BusExpress.BLL.Dto.SchemaPlaceDto
+@{
+    ViewBag.Title = "Schema Places Info";
+}
+
+<!-- 14 - Rows / 5 - Columns -->
+@{
+    var schemaModel = Model;
+}
+
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:black;color:white;padding:12px">
+        Schema Places Info
+    </span>
+</h2>
+<hr />
+
+@if (BusExpress.PL.Controllers.SelectController.IsBusyPlace == true)
+{
+    <div class="row" style="">
+        <div class="col"></div>
+        <div style="" class="col-4 alert alert-success alert-dismissible">
+            <a href="~/Select/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+               aria-label="close">&times;</a>
+            <h5 style="text-align:center;font-family:'Times New Roman';color:red">
+                @ViewBag.BusyMsg
+            </h5>
+        </div>    
+        <div class="col"></div>
+    </div>
+}
+
+<div id="mainScope">
+    @using (Html.BeginForm())
+    {
+        <div hidden style="margin-top:3px" class="row">
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is53Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">53</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-53">53</button>
+                }
+            </div>
+        </div>
+        <!-- 1st Row: -->
+        <div class="row" style="margin-top: 3px">
+            <div class="col" id="pls">
+                @if (@schemaModel.Is1Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">1</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-1">1</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is5Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">5</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-5">5</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is9Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">9</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-9">9</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is13Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">13</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-13">13</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is17Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">17</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-17">17</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is21Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">21</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-21">21</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is25Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">25</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-25">25</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is29Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">29</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-29">29</button>
+                }
+            </div>
+            <div class="col" id="pls">  </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is35Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">35</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-35">35</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is39Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">39</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-39">39</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is43Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">43</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-43">43</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is47Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">47</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-47">47</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is48Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">48</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-48">48</button>
+                }
+            </div>
+        </div>
+
+        <!-- 2nd Row: -->
+        <div class="row" style="margin-top:3px">
+            <div class="col" id="pls">
+                @if (@schemaModel.Is2Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">2</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-2">2</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is6Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">6</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-6">6</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is10Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">10</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-10">10</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is14Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">14</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-14">14</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is18Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">18</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-18">18</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is22Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">22</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-22">22</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is26Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">26</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-26">26</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is30Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">30</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-30">30</button>
+                }
+            </div>
+            <div class="col" id=""> </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is51Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">51</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-51">51</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is36Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">36</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-36">36</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is40Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">40</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-40">40</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is44Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">44</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-44">44</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is52Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">52</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-52">52</button>
+                }
+            </div>
+        </div>
+
+        <!-- 3rd Row: -->
+        <div style="margin-top:3px" class="row">
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id=""> </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is53Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">53</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-53">53</button>
+                }
+            </div>
+        </div>
+
+        <!-- 4th Row: -->
+        <div class="row" style="margin-top: 3px">
+            <div class="col" id="pls">
+                @if (@schemaModel.Is4Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">4</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-4">4</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is8Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">8</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-8">8</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is12Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">12</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-12">12</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is16Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">16</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-16">16</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is20Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">20</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-20">20</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is24Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">24</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-24">24</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is28Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">28</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-28">28</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is32Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">32</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-32">32</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is34Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">34</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-34">34</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is38Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">38</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-38">38</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is42Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">42</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-42">42</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is46Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">46</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-46">46</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is50Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">50</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-50">50</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is54Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">54</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-54">54</button>
+                }
+            </div>
+        </div>
+
+        <!-- 5th Row: -->
+        <div style="margin-top:3px" class="row">
+            <div class="col" id="pls">
+                @if (@schemaModel.Is3Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">3</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-3">3</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is7Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">7</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-7">7</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is11Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">11</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-11">11</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is15Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">15</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-15">15</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is19Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">19</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-19">19</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is23Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">23</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-23">23</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is27Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">27</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-27">27</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is31Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">31</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-31">31</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is33Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">33</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-33">33</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is37Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">37</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-37">37</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is41Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">41</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-41">41</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is45Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">45</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-45">45</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is49Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">49</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-49">49</button>
+                }
+            </div>
+            <div class="col" id="pls">
+                @if (@schemaModel.Is55Place == true)
+                {
+                    <button style="background-color:yellow;color:red" type="submit" name="btn-busy">55</button>
+                }
+                else
+                {
+                    <button style="background-color:white;color:green" type="submit" name="btn-55">55</button>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    #mainScope {
+        background-color: black;
+        padding: 12px
+    }
+
+    #pls {
+        /*    border: 1px solid;*/
+        width: 50px;
+        height: 50px;
+    }
+
+        #pls:hover {
+            background-color: silver;
+            border: 1px solid silver;
+        }
+
+    button {
+        border: 1px solid white;
+        width: 100%;
+        height: 100%;
+        color: green;
+        font-weight: bold;
+    }
+
+        button:hover {
+            background-color: silver;
+            border: 1px solid silver;
+        }
+</style>

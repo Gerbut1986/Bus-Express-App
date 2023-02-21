@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", id = "wlcm" })
+            </li>
+            <li><a  id="logoffLink" style="border:1px solid white;color:white;padding:12px" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
+<style>
+    #wlcm {
+        color: darkgreen;
+        margin-right: 55px;
+        font-size:large;
+        font-family:'Times New Roman';
+        text-decoration: none
+    }
+
+    #loginLink {
+        border: 1px solid green;
+        color: white;
+        padding: 10px;
+        background-color: green;
+        text-decoration: none;
+        border-radius: 12px;
+        font-family: 'Palatino Linotype'
+    }
+
+        #loginLink:hover {
+            border: 1px solid darkgreen;
+            background-color: darkgreen;
+            color: white;
+        }
+
+    #logoffLink {
+        border: 1px solid white;
+        color: white;
+        background-color: darkred;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 12px;
+        font-family: 'Palatino Linotype'
+    }
+
+        #logoffLink:hover {
+            background-color: whitesmoke;
+            color: white;
+            background-color: red;
+        }
+</style>

@@ -1,0 +1,58 @@
+﻿@model BusExpress.PL.Models.FromToModel
+@{
+    ViewBag.Title = "Destination Info";
+}
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:black;color:white;padding:12px">
+        Destination Info - [Create Form]
+    </span>
+</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="width: 400px; margin: auto; padding: 22px; background-image: linear-gradient(black, blue, darkgray) " class="form-horizontal">
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <h5>From:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>To:</h5>
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.To, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" style="text-align:center;margin-top:10px">
+                <div class="col-md-offset-2 col-md-12" style="text-align:center">
+                    <input type="submit" value="Create" style="width: 200px" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div style="text-align:center;margin-top:15px">
+    @Html.ActionLink("Back to List", "DestinationInfo", "Select", null, new { style = "", @class = "btn btn-danger" })
+</div>
+
+<style>
+    h5 {
+        color: gold;
+    }
+</style>

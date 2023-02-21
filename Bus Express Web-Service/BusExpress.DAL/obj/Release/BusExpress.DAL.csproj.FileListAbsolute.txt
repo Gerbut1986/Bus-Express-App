@@ -1,0 +1,12 @@
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\BusExpress.DAL.dll.config
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\BusExpress.DAL.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\BusExpress.DAL.pdb
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\EntityFramework.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\EntityFramework.xml
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\obj\Release\BusExpress.DAL.csproj.AssemblyReference.cache
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\obj\Release\BusExpress.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\obj\Release\BusExpress.DAL.csproj.CopyComplete
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\obj\Release\BusExpress.DAL.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.DAL\obj\Release\BusExpress.DAL.pdb

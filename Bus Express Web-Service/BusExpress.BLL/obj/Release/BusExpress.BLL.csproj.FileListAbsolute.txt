@@ -1,0 +1,12 @@
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\BusExpress.BLL.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\BusExpress.BLL.pdb
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\BusExpress.DAL.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\EntityFramework.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\BusExpress.DAL.pdb
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\BusExpress.DAL.dll.config
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\bin\Release\EntityFramework.xml
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\obj\Release\BusExpress.BLL.csproj.AssemblyReference.cache
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\obj\Release\BusExpress.BLL.csproj.CoreCompileInputs.cache
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\obj\Release\BusExpress.BLL.csproj.CopyComplete
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\obj\Release\BusExpress.BLL.dll
+C:\Users\ANDRE\source\repos\Bus Express Web-Service\BusExpress.BLL\obj\Release\BusExpress.BLL.pdb

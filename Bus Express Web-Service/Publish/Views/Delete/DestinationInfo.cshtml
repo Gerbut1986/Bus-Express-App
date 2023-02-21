@@ -1,0 +1,70 @@
+﻿@model BusExpress.BLL.Dto.DestinationDto
+
+@{
+    ViewBag.Title = "Destination Info Delete";
+}
+
+<hr />
+<h2 style="text-align:center;color:blue;font-family:'Palatino Linotype';font-weight:bold">
+    <span style="background-color:red;color:white;padding:12px">
+        Destination Info - [Delete Form]
+    </span>
+</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="row" style="text-align:center">
+        <div class="col">
+            <dl id="scope" class="dl-horizontal">
+                <dt>
+                    <label style="text-align:left">Id:</label>
+                </dt>
+
+                <dd>
+                    @Html.TextBoxFor(model => model.Id, new { id = "val_field", @readonly = true })
+                </dd>
+
+                <dt>
+                    <label>Name:</label>
+                </dt>
+
+                <dd>
+                    @Html.TextBoxFor(model => model.Name, new { id = "val_field", @readonly = true })
+                </dd>
+            </dl>
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-danger">Delete Record</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div style="text-align:left;margin-top:15px">
+    @Html.ActionLink("Back to List", "DestinationInfo", "Select", null, new { style = "background-color:black;border:2px solid black", @class = "btn btn-danger" })
+</div>
+
+
+<style>
+    dt {
+        color: white;
+        text-align: left;
+    }
+
+    #scope {
+        width: 300px;
+        margin: auto;
+        padding: 22px;
+        background-image: linear-gradient(black, black, darkgray)
+    }
+
+    #val_field {
+        text-align: left;
+        background-color: black;
+        text-align: center;
+        font-family: palatino linotype;
+        font-weight: bold;
+        color: darkorange;
+        font-size: large
+    }
+</style>
